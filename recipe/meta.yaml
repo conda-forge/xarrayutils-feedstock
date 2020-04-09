@@ -11,6 +11,7 @@ source:
 
 build:
   noarch: python
+
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -23,7 +24,7 @@ requirements:
     - python
     - xarray
     - numpy
-    - matplotlib
+    - matplotlib-base
     - scipy
     - astropy
     - dask
