@@ -5,9 +5,11 @@ Home: https://github.com/jbusecke/xarrayutils
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/xarrayutils-feedstock/blob/master/LICENSE.txt)
 
 Summary: A collection of various tools for data analysis built on top of xarray and xgcm
+
+Development: https://github.com/jbusecke/xarrayutils
 
 This package contains a variety of utility functions I have used in the past few years for data analysis.
 
