@@ -1,29 +1,26 @@
 {% set name = "xarrayutils" %}
 {% set version = "2.0.1" %}
-{% set sha = "e157d6cf6a7e166e5a50a15d64cb2022af46bc30211a11e3f5a63f6985b7ceb9" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xarrayutils-{{ version }}.tar.gz
+  sha256: e157d6cf6a7e166e5a50a15d64cb2022af46bc30211a11e3f5a63f6985b7ceb9
 
 build:
   noarch: python
-
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.8
+    - python >=3.9
     - pip
-    - pytest-runner
   run:
-    - python >=3.8
-    - xarray
+    - python >=3.9
+    - xarray >=0.14.1
     - numpy
     - matplotlib-base
     - scipy
@@ -33,6 +30,10 @@ requirements:
 test:
   imports:
     - xarrayutils
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/jbusecke/xarrayutils
