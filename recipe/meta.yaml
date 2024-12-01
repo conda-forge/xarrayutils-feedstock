@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xarrayutils-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/xarrayutils-{{ version }}.tar.gz
   sha256: e157d6cf6a7e166e5a50a15d64cb2022af46bc30211a11e3f5a63f6985b7ceb9
   patches:
     - drop_versioneer.patch
@@ -14,14 +14,14 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - xarray >=0.14.1
     - numpy
     - matplotlib-base
@@ -36,6 +36,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/jbusecke/xarrayutils
